@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Outfit:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-ink: #101212;
+  --brand-authority: #2D3A3A;
+  --brand-sand: #B89A6A;
+  --brand-paper: #FCFAF7;
+  --brand-mist: #F5F4F1;
+}
+
+/* =========================================
+   BASE STYLES
+   ========================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--brand-paper);
+  color: var(--brand-ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Selection Color */
+::selection {
+  background: rgba(184, 154, 106, 0.2);
+  color: var(--brand-ink);
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+}
+
+/* Global Noise Overlay for Texture */
+.noise-overlay {
+  position: relative;
+}
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 10;
+}
+
+/* =========================================
+   PREMIUM UI ELEMENTS
+   ========================================= */
+.card-premium {
+  @apply bg-white transition-all duration-700 overflow-hidden;
+  border: 1px solid rgba(45, 58, 58, 0.05);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.03);
+  border-radius: 1.5rem;
+}
+
+.card-premium:hover {
+  @apply -translate-y-2;
+  box-shadow: 0 20px 50px -12px rgba(45, 58, 58, 0.08);
+  border-color: rgba(200, 169, 126, 0.2);
+}
+
+/* =========================================
+   PREMIUM BUTTONS
+   ========================================= */
+.btn-primary {
+  @apply relative px-12 py-5 font-semibold tracking-[0.2em] transition-all duration-500 uppercase text-[10px] overflow-hidden inline-flex items-center justify-center;
+  background: var(--brand-authority);
+  color: #fff;
+  border-radius: 100px; /* Modern pill shape */
+}
+
+.btn-primary:hover {
+  @apply -translate-y-1 scale-[1.02];
+  background: var(--brand-ink);
+  box-shadow: 0 20px 40px -10px rgba(45, 58, 58, 0.25);
+}
+
+.btn-primary::after {
+  content: '';
+  @apply absolute inset-0 bg-white/10 translate-y-full transition-transform duration-500;
+}
+.btn-primary:hover::after {
+  @apply translate-y-0;
+}
+
+/* =========================================
+   TEXT GRADIENTS & DISPLAY
+   ========================================= */
+.text-serif-display {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+/* =========================================
+   UTILITIES
+   ========================================= */
+.section-padding {
+  @apply py-40 px-10 md:px-20 lg:px-40;
+}
+
+.transition-slow {
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes soft-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.05; }
+  50% { transform: scale(1.1); opacity: 0.1; }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 15s infinite ease-in-out;
+}
+
+
