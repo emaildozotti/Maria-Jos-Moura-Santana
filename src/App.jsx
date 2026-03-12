@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import PainPoints from './components/PainPoints'
@@ -10,8 +13,16 @@ import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 
 export default function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-in-out-cubic'
+    })
+  }, [])
+
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Navbar />
       <Hero />
       <PainPoints />
