@@ -39,7 +39,7 @@ export default function Hero() {
             
             <div className="relative z-10 border border-brand-authority/10 shadow-premium bg-white p-6 rounded-premium overflow-hidden">
               <img 
-                src="https://i.imgur.com/hQyzG8d.jpeg" 
+                src="https://i.imgur.com/rF3LfS3.jpeg" 
                 alt="Maria Jose Moura Santana" 
                 className="w-full h-auto object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105"
               />
